@@ -11,6 +11,9 @@
     <div id="app">
         {{ nama.split('').reverse().join('') }} - {{ umur  }}
     </div>
+    <div id="app2">
+        a {{ a }} - b {{ b }}
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <script>
         let vue = new Vue({
@@ -18,7 +21,32 @@
             data: {
                 nama: 'Adam Arthur Faizal',
                 umur: 17,
-                menikah: false
+                menikah: false,
+                buodata: ''
+            },
+            computed: {
+                biodata: {
+                    get: function () {
+                        return this.nama + " umurnya " + this.umur
+                    },
+                    set: function (params) {
+                        let credential = params.split(' ')
+                        this.nama = credential[0]
+                        this.umur = credential[1]
+                    }
+                }
+            }
+        })
+
+        new Vue({
+            el: '#app2',
+            data: {
+                a: 1,
+            },
+            computed: {
+                b: function () {
+                    return this.a + 2
+                }
             }
         })
     </script>

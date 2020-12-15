@@ -5,16 +5,20 @@
     <title>Belajar VueJs</title>
 </head>
 <body>
+<!--    <div id="app">-->
+<!--        {{ nama }} - {{ umur  }}-->
+<!--    </div>-->
     <div id="app">
-        {{ nama }} - {{ umur  }}
+        {{ nama.split('').reverse().join('') }} - {{ umur  }}
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <script>
-        new Vue({
+        let vue = new Vue({
             el: '#app',
             data: {
                 nama: 'Adam Arthur Faizal',
                 umur: 17,
+                menikah: false
             }
         })
     </script>
